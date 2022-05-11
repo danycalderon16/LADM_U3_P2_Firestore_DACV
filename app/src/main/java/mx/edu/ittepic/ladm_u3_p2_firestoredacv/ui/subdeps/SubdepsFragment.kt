@@ -104,10 +104,6 @@ class SubdepsFragment : Fragment() {
         return root
     }
 
-    private fun obtenerDepartamentos() {
-
-    }
-
     private fun obtenerAreaSub(condicion: String, opcion: String) {
         Log.i("Condicion - opcion",condicion+" - "+opcion)
         FirebaseFirestore.getInstance()
@@ -202,7 +198,6 @@ class SubdepsFragment : Fragment() {
             .document(areaSub.idSubdept)
             .get()
             .addOnSuccessListener { snapshot ->
-                val desc = snapshot.get(Util.DESCRIPCION).toString()
                 ed_edif.setText(snapshot.get(Util.IDEDIFICIO).toString())
                 ed_piso.setText(snapshot.get(Util.PISO).toString())
 
@@ -227,6 +222,7 @@ class SubdepsFragment : Fragment() {
                             Util.DESCRIPCION,spinnerEd.selectedItem.toString())
                         .addOnSuccessListener {
                             Toast.makeText(requireContext(), "Se actualiao el subdepartamento con éxito", Toast.LENGTH_SHORT).show()
+                            obtenerAreaSub("","")
                         }
 
                 })
@@ -239,11 +235,38 @@ class SubdepsFragment : Fragment() {
 
     }
     private fun deleteAreaSub(areaSub: AreaSubp) {
-
+       AlertDialog.Builder(requireContext())
+            .setTitle("Eliminar subdepartamento")
+            .setMessage("¿Está seguro de elimnar el subdepartamento ${areaSub.descripcion} " +
+                    "en el edificio ${areaSub.idEdificio} en el piso ${areaSub.piso}?")
+            .setPositiveButton("Sí") { d, i ->
+                FirebaseFirestore.getInstance()
+                    .collection(Util.AREA)
+                    .document(areaSub.idArea)
+                    .collection(Util.SUBDEPARTAMENTO)
+                    .document(areaSub.idSubdept)
+                    .delete()
+                    .addOnSuccessListener {
+                        Toast.makeText(requireContext(), "Subdepartamento eliminado", Toast.LENGTH_SHORT).show()
+                        obtenerAreaSub("","")
+                    }
+                    .addOnFailureListener {
+                        mensageError("No se pudo eliminar el área")
+                    }
+                adapter.notifyDataSetChanged()
+            }
+            .setNegativeButton("No",{d,i->d.dismiss()})
+            .show()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+    private fun mensageError(message: String?) {
+        androidx.appcompat.app.AlertDialog.Builder(requireContext())
+            .setTitle("ERROR")
+            .setMessage(message)
+            .show()
     }
 }
