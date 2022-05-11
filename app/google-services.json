@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "860475152370",
+    "project_id": "ladm-u3-p2-7964b",
+    "storage_bucket": "ladm-u3-p2-7964b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:860475152370:android:3ec33cd5ca8dc5fe00fd6b",
+        "android_client_info": {
+          "package_name": "mx.edu.ittepic.ladm_u3_p2_firestoredacv"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "860475152370-ae9o4qqn8lrm9c5ne0bdp90ssotlll6c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDL_cnHbxoGCNYVYi4QVEcnkb9psHwH4rM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "860475152370-ae9o4qqn8lrm9c5ne0bdp90ssotlll6c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
