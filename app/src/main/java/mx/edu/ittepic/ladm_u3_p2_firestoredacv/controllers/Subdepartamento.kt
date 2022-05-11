@@ -12,10 +12,10 @@ class Subdepartamento {
     var idSubdepto = ""
     var idEdificio = ""
     var piso = 0
-    var area = ""
+    var idArea = ""
 
     override fun toString(): String {
         return "IDsubd: "+ idSubdepto + ", " +"IDEdif: "+ idEdificio +
-                ", " +"Piso: "+ piso + ", " + "IDarea: "+area
+                ", " +"Piso: "+ piso + ", " + "IDarea: "+idArea
     }
 }

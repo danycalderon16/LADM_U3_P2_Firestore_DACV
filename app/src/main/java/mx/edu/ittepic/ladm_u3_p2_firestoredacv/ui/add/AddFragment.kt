@@ -85,16 +85,11 @@ class AddFragment : Fragment() {
 
         val textSpinner = spinner.selectedItem.toString()
 
-        if (edificio.isEmpty() || piso.isEmpty())
+        if (edificio.isEmpty() || piso.isEmpty()) {
             Toast.makeText(requireContext(), "Rellene todos los campos", Toast.LENGTH_SHORT).show()
+            return
+        }
 
-        val datos = hashMapOf(
-            Util.IDEDIFICIO to edificio,
-            Util.PISO to piso.toInt(),
-            Util.IDAREA to textSpinner
-        )
-
-        Log.i("Datos",datos.toString()+" - "+textSpinner)
         FirebaseFirestore.getInstance()
             .collection(Util.AREA)
             .get()
@@ -102,6 +97,13 @@ class AddFragment : Fragment() {
                 for(doc in result ){
                     val desc = doc.getString(Util.DESCRIPCION).toString()
                     if (textSpinner == desc){
+                        val datos = hashMapOf(
+                            Util.IDEDIFICIO to edificio,
+                            Util.PISO to piso.toInt(),
+                            Util.DESCRIPCION to textSpinner,
+                            Util.IDAREA to doc.id
+                        )
+
                         FirebaseFirestore.getInstance()
                             .collection(Util.AREA)
                             .document(doc.id)
@@ -152,6 +154,7 @@ class AddFragment : Fragment() {
 
         if (desc.isEmpty() || division.isEmpty() || cantEmpl.isEmpty()){
             Toast.makeText(requireContext(), "Rellene todos los campos", Toast.LENGTH_SHORT).show()
+            return
         }
 
         val datos = hashMapOf(

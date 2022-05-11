@@ -6,7 +6,7 @@ class Util {
         const val IDSUBDEPTO  = "idsubdepto"
         const val IDEDIFICIO  = "idEdificio"
         const val PISO  = "piso"
-        const val IDAREA  = "area"
+        const val IDAREA  = "idArea"
         const val AREA  = "areas"
         const val DESCRIPCION  = "descripcion"
         const val DIVISION  = "division"

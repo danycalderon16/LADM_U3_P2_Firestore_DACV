@@ -22,14 +22,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_marginBottom="3dp"
-            android:layout_weight="0.4"
+            android:layout_weight="0.3"
             android:text="ID Edificio" />
 
         <EditText
             android:id="@+id/ed_id_edificio_edit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.6"
+            android:layout_weight="0.7"
             android:singleLine="true" />
     </LinearLayout>
 
@@ -43,14 +43,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_marginBottom="3dp"
-            android:layout_weight="0.4"
+            android:layout_weight="0.3"
             android:text="Piso" />
 
         <EditText
             android:id="@+id/ed_piso_edit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.6"
+            android:layout_weight="0.7"
             android:inputType="number"
             android:singleLine="true" />
     </LinearLayout>
@@ -66,14 +66,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_marginBottom="3dp"
-            android:layout_weight="0.4"
-            android:text="Áreas" />
+            android:layout_weight="0.3"
+            android:text="Área" />
 
         <Spinner
             android:id="@+id/spinner_ed"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.6" />
+            android:layout_weight="0.7" />
     </LinearLayout>
 
 </LinearLayout>
